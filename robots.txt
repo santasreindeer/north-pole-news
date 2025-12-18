@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://santasreindeer.github.io/north-pole-news/sitemap.xml
