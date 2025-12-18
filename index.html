@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <title>North Pole News – Breaking Reindeer Story</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <style>
-    /* ------- your original CSS stays untouched ------- */
     :root {
       --red: #b00020;
       --gold: #f4d07a;
@@ -29,18 +27,7 @@
       overflow-x: hidden;
     }
 
-    header {
-      background: linear-gradient(90deg, #003366, #00695c);
-      color: white;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    /* ------- popup styling added here ------- */
-
+    /* === POPUP STYLES === */
     #christmas-gate {
       position: fixed;
       inset: 0;
@@ -84,13 +71,23 @@
       color: black;
     }
 
-    /* hide site until unlocked */
+    /* hide the site until “Yes” is clicked */
     #site-content {
       display: none;
       width: 100%;
     }
 
-    /* ------- your original CSS continues ------- */
+    /* === YOUR ORIGINAL STYLES === */
+
+    header {
+      background: linear-gradient(90deg, #003366, #00695c);
+      color: white;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
     .header-inner {
       max-width: 1000px;
@@ -100,25 +97,44 @@
       justify-content: space-between;
       gap: 1rem;
     }
+
     .brand { display: flex; align-items: center; gap: 0.75rem; }
+
     .brand-logo {
-      width: 44px; height: 44px; border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       background: radial-gradient(circle at 30% 30%, #ffffff, #ffecb3);
-      border: 2px solid var(--gold); display: flex;
-      align-items: center; justify-content: center; font-size: 1.6rem;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
     }
+
     .brand-text h1 {
-      font-size: 1.3rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-    .brand-text span { font-size: 0.75rem; opacity: 0.9; }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
 
     nav {
-      font-size: 0.85rem; text-transform: uppercase;
-      letter-spacing: 0.06em; opacity: 0.9;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.9;
     }
 
     nav a {
-      color: #e3f2fd; text-decoration: none; margin-left: 1rem; white-space: nowrap;
+      color: #e3f2fd;
+      text-decoration: none;
+      margin-left: 1rem;
+      white-space: nowrap;
     }
 
     nav a:hover { text-decoration: underline; }
@@ -128,19 +144,182 @@
     .container { max-width: 1000px; margin: 0 auto; }
 
     .hero-banner {
-      background: #b71c1c; color: white; text-align: center;
-      padding: 0.75rem 1rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; border-radius: 10px 10px 0 0;
+      background: #b71c1c;
+      color: white;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 10px 10px 0 0;
     }
 
-    /* other original styles remain unchanged ... */
+    .article-card {
+      background: var(--snow);
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+      border: 2px solid #eceff1;
+      margin-bottom: 2rem;
+    }
 
+    .article-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .article-image-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem;
+    }
+
+    .article-image {
+      width: 100%;
+      border-radius: 12px;
+      border: 3px solid #fff3e0;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      object-fit: cover;
+    }
+
+    .article-content h2 {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .article-content h3 {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: var(--green);
+      font-style: italic;
+    }
+
+    .article-content p + p { margin-top: 0.75rem; }
+
+    .dateline {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #546e7a;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: #ffcdd2;
+      color: #b71c1c;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.4rem;
+      margin: 1rem 0 0.5rem;
+      color: var(--green);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #455a64;
+      margin-bottom: 1rem;
+    }
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .roster-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .roster-name {
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 0.25rem;
+    }
+
+    .roster-role {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #546e7a;
+      margin-bottom: 0.35rem;
+    }
+
+    .roster-note {
+      font-size: 0.85rem;
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .story-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .story-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #b71c1c;
+    }
+
+    .story-title {
+      font-weight: 700;
+      margin: 0.4rem 0 0.3rem;
+    }
+
+    .story-body {
+      font-size: 0.9rem;
+      color: #37474f;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      padding: 1rem;
+      color: #455a64;
+    }
+
+    @media (max-width: 800px) {
+      .article-inner { grid-template-columns: 1fr; }
+      header { position: static; }
+      nav { display: none; }
+      .hero-banner { font-size: 0.8rem; }
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- ************ CHRISTMAS GATE POPUP ************ -->
+  <!-- POPUP GATE -->
   <div id="christmas-gate">
     <div id="christmas-gate-box">
       <h2 style="color: var(--red); margin-bottom: 0.7rem;">
@@ -150,35 +329,247 @@
         This site is exclusively for those with true Christmas spirit.<br>
         Do you feel holiday cheer?
       </p>
-
       <button id="cheer-yes">Yes! 🎉</button>
       <button id="cheer-no">No 😐</button>
     </div>
   </div>
 
-  <!-- ************ WRAP ORIGINAL PAGE HERE ************ -->
+  <!-- ORIGINAL SITE, HIDDEN UNTIL “YES” -->
   <div id="site-content">
-
-  <!-- everything you already had starts below -->
-
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <div class="brand-logo">🎄</div>
-        <div class="brand-text">
-          <h1>North Pole News</h1>
-          <span>Official Gazette of Santa’s Village</span>
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-logo">🎄</div>
+          <div class="brand-text">
+            <h1>North Pole News</h1>
+            <span>Official Gazette of Santa’s Village</span>
+          </div>
         </div>
+        <nav>
+          <a href="#top-story">Top Story</a>
+          <a href="#reindeer">Reindeer Roster</a>
+          <a href="#elves">Elf Life & Santa</a>
+        </nav>
       </div>
-      <nav>
-        <a href="#top-story">Top Story</a>
-        <a href="#reindeer">Reindeer Roster</a>
-        <a href="#elves">Elf Life & Santa</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <!-- ALL your original page content stays exactly the same -->
-    <!-- (cut here to save space — leave everything unchanged) -->
-    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+    <main>
+      <div class="container" id="top-story">
+        <div class="hero-banner">
+          BREAKING NEWS FROM THE NORTH POLE!
+        </div>
+
+        <!-- TOP STORY: RUBY -->
+        <article class="article-card">
+          <div class="article-inner">
+            <div class="article-image-wrap">
+              <img
+                src="ruby-baby-reindeer.jpg"
+                alt="Ruby, Santa's new baby reindeer"
+                class="article-image"
+              />
+            </div>
+
+            <div class="article-content">
+              <div class="dateline">North Pole – Official Announcement</div>
+              <h2>BREAKING NORTH POLE NEWS — Ruby Joins Santa’s Reindeer Team!</h2>
+
+              <h3>A brand-new sparkle of Christmas magic is born.</h3>
+
+              <p>
+                Ruby, Santa’s newest baby reindeer, was born under the shimmering
+                Northern Lights this winter. With soft snow-brown fur, bright curious
+                eyes, and a jingle-bell holly collar, Ruby is already charming everyone
+                at the North Pole.
+              </p>
+
+              <p>
+                Although she is still very young, Ruby has officially begun reindeer
+                training with Santa’s Flight Academy. She practices trotting next to
+                Donner and learns to respond to sleigh bells by sound alone. Trainers
+                say she is gentle, brave, and surprisingly fast for her age.
+              </p>
+
+              <p>
+                Ruby’s favorite snack is frosted lichen, she loves rolling in fresh
+                snow, and she has become best friends with the stable elves. Santa
+                says Ruby will bring “extra sparkle to Christmas magic for years to
+                come.”
+              </p>
+
+              <span class="tag">Reindeer Training • New Arrival</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- REINDEER ROSTER -->
+        <section id="reindeer">
+          <h2 class="section-title">Official Reindeer Roster</h2>
+          <p class="section-subtitle">
+            Meet the heroes of Christmas Eve. Ruby is now the tiniest, newest member
+            of the team.
+          </p>
+
+          <div class="roster-grid">
+            <div class="roster-card">
+              <div class="roster-name">Dasher</div>
+              <div class="roster-role">Lead Sprinter</div>
+              <div class="roster-note">
+                Fastest take-off in the herd; leads warm-up laps around the Pole.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Dancer</div>
+              <div class="roster-role">Sky Acrobat</div>
+              <div class="roster-note">
+                Known for elegant mid-air twirls and calm, steady flying.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Prancer</div>
+              <div class="roster-role">Parade Captain</div>
+              <div class="roster-note">
+                Keeps formations picture-perfect for Christmas Eve flyovers.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Vixen</div>
+              <div class="roster-role">Navigation Scout</div>
+              <div class="roster-note">
+                Expert at reading starlight and Northern Lights paths.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Comet</div>
+              <div class="roster-role">High-Altitude Flyer</div>
+              <div class="roster-note">
+                Handles storm clouds and tricky winds with a grin.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Cupid</div>
+              <div class="roster-role">Morale Officer</div>
+              <div class="roster-note">
+                Delivers extra cheer to sleepy children along the route.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Donner</div>
+              <div class="roster-role">Strength Trainer</div>
+              <div class="roster-note">
+                Big-hearted mentor who now helps Ruby learn her first trotting drills.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Blitzen</div>
+              <div class="roster-role">Thunder Charger</div>
+              <div class="roster-note">
+                Powers through the loudest storms and leads lightning-fast sprints.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Rudolph</div>
+              <div class="roster-role">Chief Light Guide</div>
+              <div class="roster-note">
+                Famous red nose; now helping teach Ruby about courage and kindness.
+              </div>
+            </div>
+
+            <div class="roster-card">
+              <div class="roster-name">Ruby</div>
+              <div class="roster-role">Trainee Reindeer</div>
+              <div class="roster-note">
+                Smallest hooves, biggest heart. Currently in Flight Academy Level 1:
+                Snow Trotting & Sleigh Bell Listening.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MORE STORIES + SANTA MESSAGE -->
+        <section id="elves">
+          <h2 class="section-title">More North Pole Stories</h2>
+          <p class="section-subtitle">
+            While Ruby trains, life around Santa’s Village is busier and jollier than ever.
+          </p>
+
+          <div class="stories-grid">
+            <article class="story-card">
+              <div class="story-tag">ELF LIFE</div>
+              <div class="story-title">Stable Elves Knit Tiny Winter Blanket for Ruby</div>
+              <p class="story-body">
+                The Stable Elf Crew has finished a hand-knit snowflake blanket sized
+                just for Ruby. Woven with sparkling stardust thread, it keeps her warm
+                during post-training naps and is already her favorite place to curl up.
+              </p>
+            </article>
+
+            <article class="story-card">
+              <div class="story-tag">TRAINING UPDATE</div>
+              <div class="story-title">First Sleigh Bell Test: Ruby Passes with Flying Colors</div>
+              <p class="story-body">
+                In her first sound-training session, Ruby successfully followed three
+                different sleigh-bell patterns without looking. Trainers say this means
+                she’s developing excellent listening skills for future night flights.
+              </p>
+            </article>
+
+            <article class="story-card">
+              <div class="story-tag">COOKIE REPORT</div>
+              <div class="story-title">Bakery Elves Launch “Ruby Red” Holiday Cookie</div>
+              <p class="story-body">
+                To celebrate Ruby’s arrival, the bakery elves unveiled a new cookie:
+                vanilla snowflake biscuits with a bright red sugar jewel in the center.
+                Santa recommends one cookie per glass of milk, “for perfect Christmas
+                balance.”
+              </p>
+            </article>
+          </div>
+
+          <article class="story-card">
+            <div class="story-tag">MESSAGE FROM SANTA</div>
+            <div class="story-title">A Note to All Children Around the World</div>
+            <p class="story-body">
+              “Dear friends,” Santa writes, “every time a new reindeer like Ruby joins
+              our team, it reminds us that small acts of kindness and courage grow into
+              big, bright magic. When you share, help, or comfort someone, you are
+              training your heart just like Ruby trains her hooves. Thank you for
+              keeping the spirit of Christmas glowing all year long.”
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      © North Pole News – All Christmas Magic Reserved.
+    </footer>
+  </div> <!-- end of #site-content -->
+
+  <script>
+    const gate = document.getElementById("christmas-gate");
+    const site = document.getElementById("site-content");
+    const yesBtn = document.getElementById("cheer-yes");
+    const noBtn = document.getElementById("cheer-no");
+
+    yesBtn.addEventListener("click", () => {
+      gate.style.display = "none";
+      site.style.display = "block";
+    });
+
+    noBtn.addEventListener("click", () => {
+      alert("Come back when you feel the magic! 💖🎄");
+    });
+  </script>
+
+</body>
+</html>
+
