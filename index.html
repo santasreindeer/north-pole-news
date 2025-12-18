@@ -329,8 +329,9 @@
         This site is exclusively for those with true Christmas spirit.<br>
         Do you feel holiday cheer?
       </p>
-      <button id="cheer-yes">Yes! 🎉</button>
-      <button id="cheer-no">No 😐</button>
+      <button id="cheer-yes" onclick="enterSite()">Yes! 🎉</button>
+<button id="cheer-no" onclick="noCheer()">No 😐</button>
+
     </div>
   </div>
 
@@ -555,20 +556,16 @@
   </div> <!-- end of #site-content -->
 
   <script>
-    const gate = document.getElementById("christmas-gate");
-    const site = document.getElementById("site-content");
-    const yesBtn = document.getElementById("cheer-yes");
-    const noBtn = document.getElementById("cheer-no");
+  function enterSite() {
+    document.getElementById("christmas-gate").style.display = "none";
+    document.getElementById("site-content").style.display = "block";
+  }
 
-    yesBtn.addEventListener("click", () => {
-      gate.style.display = "none";
-      site.style.display = "block";
-    });
+  function noCheer() {
+    alert("Come back when you feel the magic! 💖🎄");
+  }
+</script>
 
-    noBtn.addEventListener("click", () => {
-      alert("Come back when you feel the magic! 💖🎄");
-    });
-  </script>
 
 </body>
 </html>
