@@ -329,8 +329,20 @@
         This site is exclusively for those with true Christmas spirit.<br>
         Do you feel holiday cheer?
       </p>
-      <button id="cheer-yes" onclick="enterSite()">Yes! 🎉</button>
-<button id="cheer-no" onclick="noCheer()">No 😐</button>
+      <button
+  id="cheer-yes"
+  onclick="document.getElementById('christmas-gate').style.display='none';document.getElementById('site-content').style.display='block';"
+>
+  Yes! 🎉
+</button>
+
+<button
+  id="cheer-no"
+  onclick="alert('Come back when you feel the magic! 💖🎄');"
+>
+  No 😐
+</button>
+
 
     </div>
   </div>
@@ -555,18 +567,7 @@
     </footer>
   </div> <!-- end of #site-content -->
 
-  <script>
-  function enterSite() {
-    document.getElementById("christmas-gate").style.display = "none";
-    document.getElementById("site-content").style.display = "block";
-  }
-
-  function noCheer() {
-    alert("Come back when you feel the magic! 💖🎄");
-  }
-</script>
-
-
+  
 </body>
 </html>
 
